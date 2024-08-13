@@ -1,35 +1,44 @@
-# Next.js + Jest
+# Equal Experts Grocery List challenge
 
-This example shows how to configure Jest to work with Next.js.
+To get things up and running quickly I decided to use Next.js with Jest https://nextjs.org/docs/app/building-your-application/testing/jest . I find setting things up can take away from that precious development time!
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Jest with the App Router and React Server Components.
+Instructions version: 5b8d0fd276b6d288905ed2f63a934e057e8feca2
 
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
-
-## How to Use
-
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
-
-```bash
-npx create-next-app --example with-jest with-jest-app
+## Setup
+Once you have cloned the repository:
+```
+git clone BLAH
 ```
 
-```bash
-yarn create next-app --example with-jest with-jest-app
+install dependancies with: 
+
+```
+npm install
 ```
 
-```bash
-pnpm create next-app --example with-jest with-jest-app
+and copy the .env file from the example
+```
+cp ./example.env ./.env
 ```
 
-## Running Tests
+The app uses SQLite as its database and the .env file sets the location of the `dev.db` file. Prisma ORM was used to help speed up development. You'll fine `dev.db` and the `schema.prisma` files in ./prisma.
 
-```bash
-npm test
+### Running the app
+
+Thanks to Next.js the front end and back end can be started using the following command: 
 ```
+npm run dev
+```
+
+The tests can be run with: 
+```
+npm run test
+```
+
+### Compromises made
+
+Due to the time constraints you will notice that no time was spared for some of the more "advanced" features .. If you can count an deleting item as an advanced feature of course! 
+- Lists are created with a basic name "List 1", "List 2" etc. You cannot write your own names for each list.
+- You cannot delete grocery lists.
+- You cannot delete items.
+- I would have liked to view each grocery list in the centre of the page when they are clicked. I didn't have time to add this extra step.
