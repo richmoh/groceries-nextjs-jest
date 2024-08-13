@@ -7,10 +7,11 @@ Instructions version: 5b8d0fd276b6d288905ed2f63a934e057e8feca2
 ## Setup
 Once you have cloned the repository:
 ```
-git clone BLAH
+git clone https://github.com/richmoh/groceries-nextjs-jest
+cd groceries-nextjs-jest
 ```
 
-install dependancies with: 
+install dependancies: 
 
 ```
 npm install
@@ -22,6 +23,12 @@ cp ./example.env ./.env
 ```
 
 The app uses SQLite as its database and the .env file sets the location of the `dev.db` file. Prisma ORM was used to help speed up development. You'll fine `dev.db` and the `schema.prisma` files in ./prisma.
+
+To update the database with the latest schema, you will need to run: 
+```
+npx prisma db push
+```
+This generates the `dev.db` file.
 
 ### Running the app
 
