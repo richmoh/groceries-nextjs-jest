@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Item {
+  id          Int      @id @default(autoincrement())
+  name        String
+  isPurchased Boolean
+  groceryList        GroceryList @relation(fields: [groceryListId], references: [id])
+  groceryListId      Int
+}
+
+model GroceryList {
+  id    Int     @id @default(autoincrement())
+  name  String
+  items Item[]
+}
